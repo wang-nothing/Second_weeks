@@ -98,7 +98,6 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
                 MyAdapter myAdapter = new MyAdapter(ShowActivity.this, data);
                 recyclerView.setAdapter(myAdapter);
-                scrollView.onRefreshComplete();
             }
         });
     }

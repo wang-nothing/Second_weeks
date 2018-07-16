@@ -41,16 +41,13 @@ public class Show_Model {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException{
-                try {
+
                     String json = response.body().string();
                     Log.i("TAG", "onResponse: " + json.toString());
                     Gson gson = new Gson();
                     goodsBean = gson.fromJson(json, GoodsBean.class);
                     imodel.model_onSuccess(goodsBean, page, content);
-                }
-                catch (JsonSyntaxException e){
 
-                }
             }
         });
     }

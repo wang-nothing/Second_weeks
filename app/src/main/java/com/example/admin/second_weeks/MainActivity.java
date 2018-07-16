@@ -7,8 +7,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.widget.TextView;
 
-import com.example.admin.second_weeks.adapter.WaterAdapter;
+import com.example.admin.second_weeks.custom.FlowLayout;
 import com.example.admin.second_weeks.custom.MyTitle;
 import com.example.admin.second_weeks.view.ShowActivity;
 
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private MyTitle mytitle;
-    private RecyclerView recyclerView;
+    private FlowLayout flow_layout;
     private List<String> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         mytitle = findViewById(R.id.mytitle);
-        recyclerView = findViewById(R.id.recyclerView);
+        flow_layout = findViewById(R.id.falow_layout);
         list = new ArrayList<>();
-        for (int i = 0; i < 20 ; i++) {
-            list.add("没有了");
+        for (int i = 0; i < 20; i++) {
+            list.add("没有");
         }
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, OrientationHelper.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        WaterAdapter waterAdapter = new WaterAdapter(MainActivity.this, list);
-        recyclerView.setAdapter(waterAdapter);
+
     }
 }
